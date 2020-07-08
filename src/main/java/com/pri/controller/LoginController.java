@@ -44,6 +44,17 @@ public class LoginController {
         return getUsername()+" 访问资源2";
     }
 
+    /**
+     * 测试资源2
+     * @return
+     */
+    @GetMapping(value = "/r/r3",produces = {"text/plain;charset=UTF-8"})
+    @PreAuthorize("hasAuthority('p3')")//拥有p2权限才可以访问
+    public String r3(){
+        return getUsername()+" 访问资源3";
+    }
+
+
     //获取当前用户信息
     private String getUsername(){
         String username = null;
